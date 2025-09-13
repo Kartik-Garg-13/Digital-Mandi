@@ -227,7 +227,7 @@ const BidDialog: React.FC<BidDialogProps> = ({ open, onClose, listing, onBidSubm
               <Box sx={{ display: 'flex', gap: 1 }}>
                 {listing.crop.organic && (
                   <Chip
-                    icon={<EcoOutlined />}
+                    icon={<NaturePeople />}
                     label="Organic"
                     color="success"
                     size="small"
