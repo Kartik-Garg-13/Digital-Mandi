@@ -41,7 +41,7 @@ import {
   FilterList,
   Search,
   Schedule,
-  Eco,
+  EcoOutlined,
   Verified,
   GroupWork,
   Speed,
@@ -671,7 +671,7 @@ const ListingsTable: React.FC = () => {
                               label="Organic" 
                               size="small" 
                               color="success"
-                              icon={<Eco sx={{ fontSize: 14 }} />}
+                              icon={<EcoOutlined sx={{ fontSize: 14 }} />}
                             />
                           )}
                           {listing.collective && (
