@@ -1,0 +1,413 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Root variables */
+:root {
+  --primary-50: #e8f5e8;
+  --primary-100: #c8e6c8;
+  --primary-200: #a5d6a5;
+  --primary-300: #81c784;
+  --primary-400: #66bb6a;
+  --primary-500: #4caf50;
+  --primary-600: #43a047;
+  --primary-700: #388e3c;
+  --primary-800: #2e7d32;
+  --primary-900: #1b5e20;
+  
+  --secondary-500: #ff9800;
+  --success-500: #4caf50;
+  --warning-500: #ffc107;
+  --error-500: #f44336;
+  
+  --background-default: #f9f9f9;
+  --background-paper: #ffffff;
+  --text-primary: #212121;
+  --text-secondary: #616161;
+  
+  --shadow-1: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-2: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-3: 0 6px 16px rgba(0, 0, 0, 0.12);
+  --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+  
+  --border-radius: 12px;
+  --border-radius-lg: 16px;
+  
+  --transition-fast: all 0.2s ease-in-out;
+  --transition-normal: all 0.3s ease-in-out;
+}
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--background-default);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+/* Global scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-50);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-300);
+  border-radius: 4px;
+  transition: var(--transition-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-500);
+}
+
+/* Agriculture-themed animations */
+@keyframes float-grain {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-8px) rotate(1deg); }
+  50% { transform: translateY(-4px) rotate(-1deg); }
+  75% { transform: translateY(-6px) rotate(1deg); }
+}
+
+@keyframes sway-leaf {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  75% { transform: rotate(-2deg); }
+}
+
+@keyframes grow-plant {
+  0% { transform: scaleY(0); }
+  100% { transform: scaleY(1); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(76, 175, 80, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(76, 175, 80, 0.4); }
+}
+
+@keyframes slide-in-up {
+  0% { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes bounce-gentle {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -8px, 0);
+  }
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+/* Custom utility classes */
+.grain-float {
+  animation: float-grain 3s ease-in-out infinite;
+}
+
+.leaf-sway {
+  animation: sway-leaf 4s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.slide-in-up {
+  animation: slide-in-up 0.6s ease-out forwards;
+}
+
+.fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+.bounce-gentle {
+  animation: bounce-gentle 1s ease-out;
+}
+
+/* Agriculture-themed backgrounds */
+.bg-farm-pattern {
+  background-image: 
+    radial-gradient(circle at 2px 2px, var(--primary-200) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+.bg-harvest-gradient {
+  background: linear-gradient(135deg, 
+    var(--primary-500) 0%, 
+    var(--secondary-500) 50%, 
+    var(--warning-500) 100%);
+}
+
+.bg-field-gradient {
+  background: linear-gradient(180deg, 
+    var(--primary-100) 0%, 
+    var(--primary-50) 100%);
+}
+
+/* Custom card styles */
+.farmer-card {
+  background: var(--background-paper);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-2);
+  border: 1px solid rgba(76, 175, 80, 0.1);
+  transition: var(--transition-normal);
+  overflow: hidden;
+  position: relative;
+}
+
+.farmer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-500), var(--success-500));
+  opacity: 0;
+  transition: var(--transition-normal);
+}
+
+.farmer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.farmer-card:hover::before {
+  opacity: 1;
+}
+
+/* MSP badge styles */
+.msp-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.msp-badge.below {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #d32f2f;
+  border: 1px solid rgba(244, 67, 54, 0.2);
+}
+
+.msp-badge.above {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #2e7d32;
+  border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+/* Trust score styles */
+.trust-score {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.trust-star {
+  color: var(--warning-500);
+  font-size: 16px;
+}
+
+.trust-star.empty {
+  color: var(--primary-200);
+}
+
+/* Status indicators */
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.status-indicator.active {
+  background-color: var(--success-500);
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.4);
+}
+
+.status-indicator.pending {
+  background-color: var(--warning-500);
+  box-shadow: 0 0 6px rgba(255, 193, 7, 0.4);
+}
+
+.status-indicator.sold {
+  background-color: var(--primary-500);
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.4);
+}
+
+/* Bid button styles */
+.bid-button {
+  background: linear-gradient(45deg, var(--primary-500) 30%, var(--success-500) 90%);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-transform: none;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.bid-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+  background: linear-gradient(45deg, var(--primary-600) 30%, var(--success-600) 90%);
+}
+
+.bid-button:active {
+  transform: translateY(0);
+}
+
+/* Price display styles */
+.price-display {
+  font-family: 'Inter', monospace;
+  font-weight: 700;
+  color: var(--primary-700);
+  font-size: 1.25rem;
+}
+
+.price-change {
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+}
+
+.price-change.positive {
+  color: var(--success-500);
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.price-change.negative {
+  color: var(--error-500);
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+/* Loading states */
+.loading-shimmer {
+  background: linear-gradient(90deg, 
+    var(--primary-50) 25%, 
+    var(--primary-100) 50%, 
+    var(--primary-50) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .farmer-card {
+    margin: 8px;
+    border-radius: var(--border-radius);
+  }
+  
+  .price-display {
+    font-size: 1rem;
+  }
+  
+  .bid-button {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    width: 100%;
+  }
+}
+
+/* Dark mode support (future) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-default: #121212;
+    --background-paper: #1e1e1e;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+  
+  .farmer-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+  .farmer-card {
+    border: 2px solid var(--primary-700);
+  }
+  
+  .bid-button {
+    border: 2px solid var(--primary-800);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .grain-float,
+  .leaf-sway,
+  .pulse-glow {
+    animation: none;
+  }
+}
