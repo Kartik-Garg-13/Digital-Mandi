@@ -36,7 +36,7 @@ import {
   WhatsApp,
   Add,
   Timer,
-  Eco,
+  EcoOutlined,
   Star
 } from '@mui/icons-material';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -157,13 +157,12 @@ const CollectivePoolCard: React.FC = () => {
   };
 
   const handleJoinSubmit = () => {
-    // Handle pool joining logic here
     setJoinDialogOpen(false);
     setSelectedPool(null);
     setJoinQuantity('');
   };
 
-  const topPool = pools[0]; // Featured pool
+  const topPool = pools[0];
 
   return (
     <motion.div
@@ -187,7 +186,6 @@ const CollectivePoolCard: React.FC = () => {
         />
 
         <CardContent>
-          {/* Featured Pool */}
           <Box sx={{ 
             p: 2, 
             mb: 3, 
@@ -216,7 +214,7 @@ const CollectivePoolCard: React.FC = () => {
                       label="Organic" 
                       size="small" 
                       color="success"
-                      icon={<Eco />}
+                      icon={<EcoOutlined />}
                     />
                   )}
                 </Box>
@@ -228,7 +226,6 @@ const CollectivePoolCard: React.FC = () => {
               />
             </Box>
 
-            {/* Progress */}
             <Box sx={{ mb: 2 }}>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
                 <Typography variant="body2" color="text.secondary">
@@ -256,7 +253,6 @@ const CollectivePoolCard: React.FC = () => {
               </Typography>
             </Box>
 
-            {/* Key Stats */}
             <Box sx={{ display: 'flex', gap: 2, mb: 2 }}>
               <Box sx={{ flex: 1, textAlign: 'center' }}>
                 <Typography variant="h6" sx={{ fontWeight: 600, color: 'success.main' }}>
@@ -278,7 +274,6 @@ const CollectivePoolCard: React.FC = () => {
               </Box>
             </Box>
 
-            {/* Participants */}
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 2 }}>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                 <AvatarGroup max={4} sx={{ '& .MuiAvatar-root': { width: 28, height: 28, fontSize: '0.8rem' } }}>
@@ -299,7 +294,6 @@ const CollectivePoolCard: React.FC = () => {
               </Box>
             </Box>
 
-            {/* Benefits */}
             <Box sx={{ mb: 2 }}>
               <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 600 }}>
                 Pool Benefits:
@@ -330,7 +324,6 @@ const CollectivePoolCard: React.FC = () => {
 
           <Divider sx={{ mb: 2 }} />
 
-          {/* Other Pools List */}
           <Typography variant="subtitle2" sx={{ fontWeight: 600, mb: 2 }}>
             Other Active Pools
           </Typography>
@@ -397,7 +390,6 @@ const CollectivePoolCard: React.FC = () => {
             ))}
           </List>
 
-          {/* Quick Stats */}
           <Box sx={{ 
             mt: 3, 
             p: 2, 
@@ -437,7 +429,6 @@ const CollectivePoolCard: React.FC = () => {
             </Box>
           </Box>
 
-          {/* WhatsApp CTA */}
           <Button
             variant="outlined"
             fullWidth
@@ -458,7 +449,6 @@ const CollectivePoolCard: React.FC = () => {
         </CardContent>
       </Card>
 
-      {/* Join Pool Dialog */}
       <Dialog 
         open={joinDialogOpen} 
         onClose={() => setJoinDialogOpen(false)}
