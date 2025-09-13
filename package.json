@@ -1,0 +1,31 @@
+{
+  "name": "farmer-marketplace-kartik",
+  "version": "1.0.0",
+  "description": "WhatsApp-first digital marketplace for Indian farmers",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.2.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "@mui/material": "5.15.15",
+    "@mui/icons-material": "5.15.15",
+    "@emotion/react": "11.11.4",
+    "@emotion/styled": "11.11.5",
+    "framer-motion": "11.0.28",
+    "recharts": "2.12.5"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.24",
+    "@types/react": "18.2.61",
+    "@types/react-dom": "18.2.19",
+    "typescript": "5.4.5",
+    "tailwindcss": "3.4.1",
+    "autoprefixer": "10.4.17",
+    "postcss": "8.4.35"
+  }
+}
